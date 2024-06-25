@@ -10,7 +10,6 @@ from io import BytesIO
 from PIL import Image
 import base64
 
-
 app = Flask(__name__)
 
 # Declaring FaceMesh model
@@ -22,7 +21,7 @@ mp_drawing = mp.solutions.drawing_utils
 drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
 # Model Initialization
-model_path = r"D:\Study-Files\GP\GP1\Code\Models\CNN\clf_lstm_jit6.pth"
+model_path = os.path.join(os.path.dirname(__file__), "models", "clf_lstm_jit6.pth")
 model = torch.jit.load(model_path)
 model.eval()
 
